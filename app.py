@@ -5,6 +5,7 @@ app = Flask(__name__)
 # In-memory database
 items = []
 
+
 @app.route('/')
 def index():
     return render_template('index.html', items=items)
@@ -27,6 +28,9 @@ def update_item(index):
     if index < len(items):
         items[index] = request.form.get('new_item')
     return redirect(url_for('index'))
+
+def add(a, b):
+    return a + b
 
 if __name__ == '__main__':
     app.run(debug=True)
